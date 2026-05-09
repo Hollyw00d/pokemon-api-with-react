@@ -1,23 +1,19 @@
 import { useState, useEffect } from "react";
 
-const useDebounce = (value, delay = 500) => {
-  const [debouncedValue, setDebouncedValue] = useState(value);
+const useDebounce = (text, delay = 500) => {
+  const [debouncedText, setDebouncedText] = useState(text);
 
   useEffect(() => {
-    // `setTimeout` invokes a function after after a duration,
-    // runs only once, and returns an ID that `clearTimeout` can read to
-    // to abort the `setTimeout`
-    const timeoutID = setTimeout(() => {
-      setDebouncedValue(value);
+    const timeout = setTimeout(() => {
+      setDebouncedText(text);
     }, delay);
 
-    // Destory `timeoutID` if `value` or `delay` values change
     return () => {
-      clearTimeout(timeoutID);
+      clearTimeout(timeout);
     };
-  }, [value, delay]);
+  }, [text, delay]);
 
-  return debouncedValue;
+  return debouncedText;
 };
 
 export default useDebounce;
