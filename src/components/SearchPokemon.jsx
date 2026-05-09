@@ -3,30 +3,35 @@ import useDebounce from "../hooks/useDebounce";
 import GetPokemon from "./GetPokemon";
 
 export default function SearchPokemon() {
-  const controllerRef = useRef();
-  const [query, setQuery] = useState(null);
+  // const controllerRef = useRef();
+  const [query, setQuery] = useState("");
   const debouncedQuery = useDebounce(query);
   const [result, setResult] = useState("");
-  const debouncedResult = useDebounce(result, 700);
+  const debouncedResult = useDebounce(result, 900);
   const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
 
   const fetchPokemon = useMemo(
     () => async () => {
       if (debouncedQuery === null) return;
 
-      if (controllerRef.current) {
-        controllerRef.current.abort();
-      }
+      // if (controllerRef.current) {
+      //   controllerRef.current.abort();
+      // }
 
-      controllerRef.current = new AbortController();
-      const { signal } = controllerRef.current;
+      // controllerRef.current = new AbortController();
+      // const { signal } = controllerRef.current;
 
       try {
         if (debouncedQuery.length < 1) {
           throw new Error("Please enter a Pokemon name or ID.");
         }
 
-        const response = await fetch(`${baseUrl}${debouncedQuery}`, { signal });
+        const response = await fetch(`${baseUrl}${debouncedQuery}`);
+
+        if (!response.ok) {
+          throw new Error("Pokemon not found");
+        }
+
         const json = await response.json();
         setResult(json);
       } catch (error) {
