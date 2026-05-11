@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import useDebounce from './hooks/useDebounce';
 import GetPokemon from './GetPokemon';
+import './main.css';
 
 export default function SearchPokemon() {
   const [search, setSearch] = useState('');
@@ -41,32 +42,27 @@ export default function SearchPokemon() {
     fetchPokemon();
   }, [debouncedQuery]);
 
-  console.log(query);
-
   return (
-    <>
-      <div>
-        <h1>Find Pokemon</h1>
-        <label htmlFor="pokemonNameOrId">
-          <p>
-            Search by Pokemon Name or ID
-            <br />
-            (see{' '}
-            <a href="https://pokemondb.net/pokedex/national" target="_blank">
-              Pokemon names and IDs
-            </a>
-            )
-          </p>
-          <input
-            id="pokemonNameOrId"
-            name="pokemonNameOrId"
-            type="text"
-            value={search}
-            onChange={handleSearch}
-          />
-        </label>
-        <GetPokemon query={query} error={error} />
-      </div>
-    </>
+    <div id="pokemon">
+      <h1>Find Pokemon</h1>
+      <label htmlFor="pokemonNameOrId">
+        <p>
+          Search by Pokemon Name or ID
+          <br />(
+          <a href="https://pokemondb.net/pokedex/national" target="_blank">
+            see Pokemon names and IDs
+          </a>
+          )
+        </p>
+        <input
+          id="pokemonNameOrId"
+          name="pokemonNameOrId"
+          type="text"
+          value={search}
+          onChange={handleSearch}
+        />
+      </label>
+      <GetPokemon query={query} error={error} />
+    </div>
   );
 }
