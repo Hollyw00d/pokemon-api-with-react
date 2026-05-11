@@ -1,11 +1,11 @@
-export default function QuerySuccessPokemon({ result }) {
+export default function SuccessGetPokemon({ query }) {
   function capitalizeString(str) {
     return `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
   }
 
-  const { name, id, sprites, height, weight, types } = result;
+  const { name, id, sprites, height, weight, types } = query;
   const nameCapitalized = capitalizeString(name);
-  const front_image_url = sprites.other.home.front_default;
+  const frontImageUrl = sprites.other.home.front_default;
 
   return (
     <div>
@@ -24,7 +24,7 @@ export default function QuerySuccessPokemon({ result }) {
           Image:
           <br />
           <img
-            src={front_image_url}
+            src={frontImageUrl}
             alt={nameCapitalized}
             width="250"
             height="250"
