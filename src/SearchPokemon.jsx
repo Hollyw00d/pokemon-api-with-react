@@ -16,7 +16,7 @@ export default function SearchPokemon() {
   };
 
   useEffect(() => {
-    async function fetchPokemon() {
+    async function fetchPokemon(fetchTimeout = 3000) {
       if (!debouncedQuery) {
         setQuery(null);
         setError(null);
@@ -24,7 +24,9 @@ export default function SearchPokemon() {
       }
 
       try {
-        const result = await fetch(`${pokeApiBaseUrl}${debouncedQuery}`);
+        const result = await fetch(`${pokeApiBaseUrl}${debouncedQuery}`, {
+          signal: AbortSignal.timeout(fetchTimeout)
+        });
 
         if (!result.ok) {
           throw new Error('Pokemon not found');
