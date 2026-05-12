@@ -1,23 +1,7 @@
 # Display a Pokemon by ID or Name using React
 
-- [Use the PokeAPI v2](https://pokeapi.co/docs/v2#pokemon)
-- Display a pokemon by ID or name
-- This ID/name will come from a text input
-- Info to display:
-  - ID
-  - name
-  - image
-  - height (cm)
-  - weight (kg)
-  - type(s)
-- Example PokeAPI URLs for:
-  - `Pikachu`:
-    - ID:  
-      https://pokeapi.co/api/v2/pokemon/25
-    - Name:  
-      https://pokeapi.co/api/v2/pokemon/pikachu
-  - `Charizard`:
-    - ID:  
-      https://pokeapi.co/api/v2/pokemon/6
-    - Name:  
-      https://pokeapi.co/api/v2/pokemon/charizard
+This React app uses the [PokéAPI](https://pokeapi.co/docs/v2#pokemon) to display a pokemon by ID or name from a text input at:  
+[https://hollyw00d.github.io/pokemon-api-with-react/](https://hollyw00d.github.io/pokemon-api-with-react/)
+
+Below is a screenshot of searching for `Bulbasaur`:  
+![Screenshot of searching for Bulbasaur](./public/assets/images/pokeapi-screenshot-example.png)
