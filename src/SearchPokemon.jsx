@@ -8,7 +8,7 @@ export default function SearchPokemon() {
   const [query, setQuery] = useState(null);
   const [error, setError] = useState(null);
 
-  const debouncedQuery = useDebounce(search.trim(), 1000);
+  const debouncedQuery = useDebounce(search.trim().toLowerCase(), 1000);
   const pokeApiBaseUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
   const handleSearch = (e) => {
@@ -54,12 +54,16 @@ export default function SearchPokemon() {
   return (
     <div id="pokemon">
       <h1>Find Pokemon</h1>
-      <label htmlFor="pokemonNameOrId">
-        <p>Search by Pokemon Name or ID</p>
-      </label>
+      <p>
+        <label htmlFor="pokemonNameOrId">Search by Pokemon Name or ID</label>
+      </p>
 
       <p>
-        <a href="https://pokemondb.net/pokedex/national" target="_blank">
+        <a
+          href="https://pokemondb.net/pokedex/national"
+          target="_blank"
+          rel="noreferrer"
+        >
           (See Pokemon names and IDs.)
         </a>
       </p>
