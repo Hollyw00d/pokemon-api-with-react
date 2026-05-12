@@ -12,11 +12,12 @@ export default function SearchPokemon() {
   const pokeApiBaseUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
   const handleSearch = (e) => {
+    setError(null);
     setSearch(e.target.value);
   };
 
   useEffect(() => {
-    async function fetchPokemon(fetchTimeout = 4000) {
+    async function fetchPokemon(fetchTimeout = 5000) {
       if (!debouncedQuery) {
         setQuery(null);
         setError(null);
