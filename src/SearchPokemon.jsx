@@ -53,7 +53,7 @@ export default function SearchPokemon() {
   }, [debouncedQuery]);
 
   return (
-    <div id="pokemon">
+    <main id="pokemon">
       <h1>Find Pokémon</h1>
       <p>
         <label htmlFor="pokemonNameOrId">Search by Pokémon Name or ID</label>
@@ -77,6 +77,6 @@ export default function SearchPokemon() {
         onChange={handleSearch}
       />
       <GetPokemon query={query} error={error} />
-    </div>
+    </main>
   );
 }
