@@ -8,7 +8,7 @@ export default function SearchPokemon() {
   const [query, setQuery] = useState(null);
   const [error, setError] = useState(null);
 
-  const debouncedQuery = useDebounce(search.trim());
+  const debouncedQuery = useDebounce(search.trim(), 1000);
   const pokeApiBaseUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
   const handleSearch = (e) => {
@@ -16,7 +16,7 @@ export default function SearchPokemon() {
   };
 
   useEffect(() => {
-    async function fetchPokemon(fetchTimeout = 3000) {
+    async function fetchPokemon(fetchTimeout = 4000) {
       if (!debouncedQuery) {
         setQuery(null);
         setError(null);
