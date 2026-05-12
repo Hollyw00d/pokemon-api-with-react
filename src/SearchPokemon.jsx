@@ -36,8 +36,12 @@ export default function SearchPokemon() {
         setQuery(data);
         setError(null);
       } catch (error) {
+        if (error.name === 'TimeoutError') {
+          setError('Request timed out. No Pokemon found! Please search again.');
+        } else {
+          setError('No Pokemon found! Please search again.');
+        }
         setQuery(null);
-        setError('No Pokemon found! Please search again.');
       }
     }
 
