@@ -33,7 +33,7 @@ export default function SearchPokemon() {
         );
 
         if (!result.ok) {
-          throw new Error('Pokemon not found');
+          throw new Error('Pokémon not found');
         }
 
         const data = await result.json();
@@ -41,9 +41,9 @@ export default function SearchPokemon() {
         setError(null);
       } catch (error) {
         if (error.name === 'TimeoutError') {
-          setError('Request timed out. No Pokemon found! Please search again.');
+          setError('Request timed out. No Pokémon found! Please search again.');
         } else {
-          setError('No Pokemon found! Please search again.');
+          setError('No Pokémon found! Please search again.');
         }
         setQuery(null);
       }
@@ -54,9 +54,9 @@ export default function SearchPokemon() {
 
   return (
     <div id="pokemon">
-      <h1>Find Pokemon</h1>
+      <h1>Find Pokémon</h1>
       <p>
-        <label htmlFor="pokemonNameOrId">Search by Pokemon Name or ID</label>
+        <label htmlFor="pokemonNameOrId">Search by Pokémon Name or ID</label>
       </p>
 
       <p>
@@ -65,7 +65,7 @@ export default function SearchPokemon() {
           target="_blank"
           rel="noreferrer"
         >
-          (See Pokemon names and IDs.)
+          (See Pokémon names and IDs.)
         </a>
       </p>
 

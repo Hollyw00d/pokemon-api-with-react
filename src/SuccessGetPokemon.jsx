@@ -12,7 +12,7 @@ export default function SuccessGetPokemon({ query }) {
   return (
     <>
       <div role="alert" aria-live="assertive" className="sr-only">
-        {nameCapitalized} Pokemon found!
+        {nameCapitalized} Pokémon found!
       </div>
 
       <section aria-labelledby="pokemon-name">
