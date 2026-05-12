@@ -24,9 +24,12 @@ export default function SearchPokemon() {
       }
 
       try {
-        const result = await fetch(`${pokeApiBaseUrl}${debouncedQuery}`, {
-          signal: AbortSignal.timeout(fetchTimeout)
-        });
+        const result = await fetch(
+          `${pokeApiBaseUrl}${encodeURIComponent(debouncedQuery)}`,
+          {
+            signal: AbortSignal.timeout(fetchTimeout)
+          }
+        );
 
         if (!result.ok) {
           throw new Error('Pokemon not found');
@@ -52,22 +55,22 @@ export default function SearchPokemon() {
     <div id="pokemon">
       <h1>Find Pokemon</h1>
       <label htmlFor="pokemonNameOrId">
-        <p>
-          Search by Pokemon Name or ID
-          <br />(
-          <a href="https://pokemondb.net/pokedex/national" target="_blank">
-            see Pokemon names and IDs
-          </a>
-          )
-        </p>
-        <input
-          id="pokemonNameOrId"
-          name="pokemonNameOrId"
-          type="text"
-          value={search}
-          onChange={handleSearch}
-        />
+        <p>Search by Pokemon Name or ID</p>
       </label>
+
+      <p>
+        <a href="https://pokemondb.net/pokedex/national" target="_blank">
+          (See Pokemon names and IDs.)
+        </a>
+      </p>
+
+      <input
+        id="pokemonNameOrId"
+        name="pokemonNameOrId"
+        type="text"
+        value={search}
+        onChange={handleSearch}
+      />
       <GetPokemon query={query} error={error} />
     </div>
   );
