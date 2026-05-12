@@ -56,7 +56,12 @@ export default function SearchPokemon() {
     <main id="pokemon">
       <h1>Find Pokémon</h1>
       <p>
-        <label htmlFor="pokemonNameOrId">Search by Pokémon Name or ID</label>
+        <label htmlFor="pokemonNameOrId">
+          Search by Pokémon Name or ID using the{' '}
+          <a href="https://pokeapi.co/" target="_blank" rel="noreferrer">
+            PokéAPI
+          </a>
+        </label>
       </p>
 
       <p>
@@ -68,6 +73,19 @@ export default function SearchPokemon() {
           (See Pokémon names and IDs.)
         </a>
       </p>
+
+      <p>Example searches:</p>
+      <ul>
+        <li>
+          <code>pikachu</code>
+        </li>
+        <li>
+          <code>25</code> (Pikachu ID)
+        </li>
+        <li>
+          <code>Bulbasaur</code> (capital letters are OK)
+        </li>
+      </ul>
 
       <input
         id="pokemonNameOrId"
