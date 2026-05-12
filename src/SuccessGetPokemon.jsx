@@ -1,4 +1,4 @@
-function capitalizeString(str) {
+function capitalizeString(str = '') {
   return `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
 }
 
@@ -28,23 +28,25 @@ export default function SuccessGetPokemon({ query }) {
 
       <ul>
         <li>
-          ID:
+          <strong>ID:</strong>
           <br />
           {id}
         </li>
         <li>
-          Height: <br />
+          <strong>Height:</strong>
+          <br />
           {heightCm} cm
         </li>
         <li>
-          Weight: <br />
+          <strong>Weight:</strong>
+          <br />
           {weightKg} kg
         </li>
         <li>
-          Type(s):
+          <strong>Type(s):</strong>
           <ul>
-            {types.map((type) => (
-              <li key={type.type.name}>{capitalizeString(type.type.name)}</li>
+            {types.map(({ type }) => (
+              <li key={type.name}>{capitalizeString(type.name)}</li>
             ))}
           </ul>
         </li>
