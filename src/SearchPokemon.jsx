@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import useDebounce from './hooks/useDebounce';
 import GetPokemon from './GetPokemon';
-import './main.css';
+import './SearchPokemon.css';
 
 export default function SearchPokemon() {
   const [search, setSearch] = useState('');

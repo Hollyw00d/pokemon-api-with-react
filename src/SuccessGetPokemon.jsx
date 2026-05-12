@@ -1,8 +1,4 @@
-function capitalizeString(str = '') {
-  return `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
-}
-
-export default function SuccessGetPokemon({ query }) {
+export default function SuccessGetPokemon({ query, capitalizeString }) {
   const { name, id, sprites, height, weight, types } = query;
   const nameCapitalized = capitalizeString(name);
   const frontImageUrl = sprites?.other?.home?.front_default;
