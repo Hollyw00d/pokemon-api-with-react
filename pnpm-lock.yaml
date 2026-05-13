@@ -15,6 +15,9 @@ importers:
         specifier: 19.2.6
         version: 19.2.6(react@19.2.6)
     devDependencies:
+      '@eslint/js':
+        specifier: ^10.0.1
+        version: 10.0.1(eslint@9.39.4)
       '@types/react':
         specifier: 19.2.14
         version: 19.2.14
@@ -36,6 +39,9 @@ importers:
       eslint-plugin-react-refresh:
         specifier: ^0.4.5
         version: 0.4.26(eslint@9.39.4)
+      globals:
+        specifier: ^17.6.0
+        version: 17.6.0
       prettier:
         specifier: 3.8.3
         version: 3.8.3
@@ -146,6 +152,15 @@ packages:
   '@eslint/eslintrc@3.3.5':
     resolution: {integrity: sha512-4IlJx0X0qftVsN5E+/vGujTRIFtwuLbNsVUe7TO6zYPDR1O6nFwvwhIKEKSrl6dZchmYBITazxKoUYOjdtjlRg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@eslint/js@10.0.1':
+    resolution: {integrity: sha512-zeR9k5pd4gxjZ0abRoIaxdc7I3nDktoXZk2qOv9gCNWx3mVwEn32VRhyLaRsDiJjTs0xq/T8mfPtyuXu7GWBcA==}
+    engines: {node: ^20.19.0 || ^22.13.0 || >=24}
+    peerDependencies:
+      eslint: ^10.0.0
+    peerDependenciesMeta:
+      eslint:
+        optional: true
 
   '@eslint/js@9.39.4':
     resolution: {integrity: sha512-nE7DEIchvtiFTwBw4Lfbu59PG+kCofhjsKaCWzxTpt4lfRjRMqG6uMBzKXuEcyXhOHoUp9riAm7/aWYGhXZ9cw==}
@@ -678,6 +693,10 @@ packages:
 
   globals@14.0.0:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
+    engines: {node: '>=18'}
+
+  globals@17.6.0:
+    resolution: {integrity: sha512-sepffkT8stwnIYbsMBpoCHJuJM5l98FUF2AnE07hfvE0m/qp3R586hw4jF4uadbhvg1ooIdzuu7CsfD2jzCaNA==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -1490,6 +1509,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@eslint/js@10.0.1(eslint@9.39.4)':
+    optionalDependencies:
+      eslint: 9.39.4
+
   '@eslint/js@9.39.4': {}
 
   '@eslint/object-schema@2.1.7': {}
@@ -2101,6 +2124,8 @@ snapshots:
       is-glob: 4.0.3
 
   globals@14.0.0: {}
+
+  globals@17.6.0: {}
 
   globalthis@1.0.4:
     dependencies:
