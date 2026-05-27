@@ -41,10 +41,11 @@ export default function SearchPokemon() {
     }
   }
 
-  const { data, error, isLoading } = useQuery({
+  const { data, error } = useQuery({
     queryKey: ['pokemn', debouncedSearch],
     queryFn: () => fetchPokemon(debouncedSearch),
     enabled: !!debouncedSearch,
+    retry: false,
     staleTime: 1000 * 60 * 60,
     gcTime: 1000 * 60 * 60
   });
@@ -91,7 +92,7 @@ export default function SearchPokemon() {
         value={search}
         onChange={handleSearch}
       />
-      <GetPokemon data={data} isLoading={isLoading} error={error} />
+      <GetPokemon data={data} error={error} />
     </main>
   );
 }
