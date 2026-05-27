@@ -6,14 +6,10 @@ import './SearchPokemon.css';
 
 export default function SearchPokemon() {
   const [search, setSearch] = useState('');
-  // const [query, setQuery] = useState(null);
-  // const [error, setError] = useState(null);
-
   const debouncedSearch = useDebounce(search.trim().toLowerCase(), 1000);
   const pokeApiBaseUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
   const handleSearch = (e) => {
-    // setError(null);
     setSearch(e.target.value);
   };
 
@@ -44,42 +40,6 @@ export default function SearchPokemon() {
       }
     }
   }
-
-  // useEffect(() => {
-  //   async function fetchPokemon(fetchTimeout = 5000) {
-  //     if (!debouncedSearch) {
-  //       setQuery(null);
-  //       setError(null);
-  //       return;
-  //     }
-
-  //     try {
-  //       const result = await fetch(
-  //         `${pokeApiBaseUrl}${encodeURIComponent(debouncedSearch)}`,
-  //         {
-  //           signal: AbortSignal.timeout(fetchTimeout)
-  //         }
-  //       );
-
-  //       if (!result.ok) {
-  //         throw new Error('Pokémon not found');
-  //       }
-
-  //       const data = await result.json();
-  //       setQuery(data);
-  //       setError(null);
-  //     } catch (error) {
-  //       if (error.name === 'TimeoutError') {
-  //         setError('Request timed out. No Pokémon found! Please search again.');
-  //       } else {
-  //         setError('No Pokémon found! Please search again.');
-  //       }
-  //       setQuery(null);
-  //     }
-  //   }
-
-  //   fetchPokemon();
-  // }, [debouncedSearch]);
 
   const { data, error, isLoading } = useQuery({
     queryKey: ['pokemn', debouncedSearch],
@@ -131,7 +91,7 @@ export default function SearchPokemon() {
         value={search}
         onChange={handleSearch}
       />
-      <GetPokemon query={data} isLoading={isLoading} error={error} />
+      <GetPokemon data={data} isLoading={isLoading} error={error} />
     </main>
   );
 }

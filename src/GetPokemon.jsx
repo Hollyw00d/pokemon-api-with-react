@@ -1,12 +1,14 @@
 import FailGetPokemon from './FailGetPokemon';
 import SuccessGetPokemon from './SuccessGetPokemon';
 
-export default function GetPokemon({ query, error }) {
+export default function GetPokemon({ data, isLoading, error }) {
   return (
     <>
+      {isLoading && <p>Loading Pokémon...</p>}
+
       {error && <FailGetPokemon error={error} />}
 
-      {query && <SuccessGetPokemon query={query} />}
+      {data && <SuccessGetPokemon data={data} />}
     </>
   );
 }
