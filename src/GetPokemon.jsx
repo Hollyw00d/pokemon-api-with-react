@@ -4,7 +4,11 @@ import SuccessGetPokemon from './SuccessGetPokemon';
 export default function GetPokemon({ data, isLoading, error }) {
   return (
     <>
-      {isLoading && <p>Loading Pokémon...</p>}
+      {isLoading && (
+        <p>
+          <strong>Loading Pokémon...</strong>
+        </p>
+      )}
 
       {error && <FailGetPokemon error={error} />}
 
