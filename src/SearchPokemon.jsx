@@ -6,7 +6,7 @@ import './SearchPokemon.css';
 
 export default function SearchPokemon() {
   const [search, setSearch] = useState('');
-  const debouncedSearch = useDebounce(search.trim().toLowerCase(), 1000);
+  const debouncedSearch = useDebounce(search.trim().toLowerCase());
   const pokeApiBaseUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
   const handleSearch = (e) => {
